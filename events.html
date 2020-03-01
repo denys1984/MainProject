@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+  <title>Document</title>
+
+</head>
+
+
+
+<body>
+
+  <!--           Modal window edit profile          -->
+  <div class="wrapper-modal">
+      <div class="modal-window">
+        <div class="modal-header">
+          Edit profile
+          <div class="close">x</div>
+        </div>
+        <div class="form-block">
+
+
+          <table>
+            <tr>
+              <td>              
+                <label for="name">Name</label>
+              </td>
+              <td>
+                <input type="text" id="name">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="surname">Surname</label>
+              </td>
+              <td>
+                <input type="text" id="surname">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="nickname">Nickname</label>
+              </td>
+              <td>
+                <input type="text" id="nickname">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="age">Age</label>
+              </td>
+              <td>
+                <input type="text" id="age">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="country">Country</label>
+              </td>
+              <td>
+                <input type="text" id="country">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="city">City</label>
+              </td>
+              <td>
+                <input type="text" id="city">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="gender">Gender</label>
+              </td>
+              <td>
+                <input type="text" id="gender">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="status">Status</label>
+              </td>
+              <td>
+                <input type="text" id="marital_status">
+              </td>
+            </tr>
+          </table>
+
+          <button type="button" id="save-profile">Save</button>
+
+        </div>
+
+      </div>
+  </div>
+
+  <!--           Modal window edit profile          -->
+
+  <!--            Main page             -->
+  <div id="main-page">
+    <div class="header">
+      <div class="page-name">Main</div>
+      <div class="log-out">Log Out</div>
+    </div>
+
+    <main>
+      <aside>
+        <div class="main-pic">
+          <div class="avatar"></div>
+
+          <form id='avaForm' >
+            <input type="file" name="photo">
+            <input type="submit" value="Отправить">
+          </form>
+
+        </div>
+        <ul class="main-menu">
+          <li><a href="profile">Main</a></li>
+          <li><a href="posts">Events</a></li>
+          <li><a href="massages">Messages</a></li>
+          <li><a href="galery">Galery</a></li>
+        </ul>
+      </aside>
+
+      <div class="main-body">
+        <ul>
+          <li>Name: <span id="user_name"></span></li>
+          <li>Surname: <span id="user_surname"></span></li>
+          <li>Nickname: <span id="user_nickname"></span></li>
+          <li>Age: <span id="user_age"></span></li>
+          <li>Country: <span id="user_country"></span></li>
+          <li>City: <span id="user_city"></span></li>
+          <li>Gender: <span id="user_gender"></span></li>
+          <li>Status: <span id="user_marital_status"></span></li>
+          <li><button type="button" class="std-btn call-edit-window">Edit profile</button></li>
+
+        </ul>
+      </div>
+
+    </main>
+  
+  </div>
+
+<script src="js/events.js"></script>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>

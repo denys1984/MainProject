@@ -1,3 +1,4 @@
+
 let errField = document.querySelector('.error-field');
 let inpLog = document.querySelector('#create-login');
 let inpLogVal;
@@ -12,7 +13,7 @@ let checkRegisterForm = {};
 // ---------------- Form Validation ---------------
 inpLog.addEventListener('blur', () => {
     errField.innerText = '';
-    inpLogVal = inpLog.value
+    inpLogVal = inpLog.value;
     if (!validateEmail(inpLogVal)) {
         errField.innerText = 'Not valid email address';
     } else {
@@ -40,31 +41,6 @@ pasTwo.addEventListener('blur', () => {
         checkRegisterForm.pasConf = 1;
     }
 });
-// ---------------- Form Validation ---------------
-
-
-
-// ------------------ Send form ------------------
-regBtn.addEventListener('click', () => {
-    event.preventDefault();
-    if (checkRegisterForm.login === 1 && checkRegisterForm.pas === 1 && checkRegisterForm.pasConf === 1) {
-        
-        fetch('http://kolbasa.qbex.io/api/login', {
-            method: 'POST',
-            headers: {
-                Accept:application/json
-            },
-            Data: {
-                email: inpLogVal,
-                password: pasTwoVal
-            },
-        }).then( token => console.log(token) );
-
-    } else {
-        errField.innerText = "Fill all fields";
-    }
-})
-
 
 
 function validateEmail(email) {
@@ -78,3 +54,46 @@ function checkPassword(str) {
   var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
   return re.test(str);
 }
+
+// ---------------- Form Validation ---------------
+
+
+
+
+
+
+
+// ------------------ Send form ------------------
+regBtn.addEventListener('click', () => {
+    event.preventDefault();
+    if (checkRegisterForm.login === 1 && checkRegisterForm.pas === 1 && checkRegisterForm.pasConf === 1) {
+
+        $.ajax({
+            url: 'http://kolbasa.qbex.io/api/register',  
+            method: 'POST',           // указываем URL и
+            dataType : "json",  
+            data: {
+             email: inpLogVal,
+             password: pasTwoVal
+            },                   // тип загружаемых данных
+            success: (data, textStatus) => { // вешаем свой обработчик на функцию success
+                window.location = 'index.html'
+            },
+            error: function (err, textStatus) { // вешаем свой обработчик на функцию success
+                if (err.status === 422) {
+                    errField.innerText = "This login already exists";
+                } else {
+                    errField.innerText = "Sorry, some server mistake";
+                }
+            }
+        });
+
+
+    } else {
+        errField.innerText = "Fill all fields";
+    }
+})
+// ------------------ Send form ------------------
+
+
+
